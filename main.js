@@ -1,5 +1,6 @@
 const bestsellersSection = document.getElementById('bestsellers');
 
+
 async function fetchAnimeData() {
     try {
         // Fetch from Jikan API
@@ -9,11 +10,11 @@ async function fetchAnimeData() {
    
         if (data.data && data.data.length > 0) {
             const animeList = data.data.map(anime => `
-                <div class="anime-card">
-                    <img src="${anime.images.jpg.large_image_url}" alt="${anime.title}">
+			<div class="bestseller-item">
+			<img src="${anime.images.jpg.large_image_url}" alt="${anime.title}">
                     <h3>${anime.title}</h3>
                     <p>${anime.synopsis ? anime.synopsis.slice(0, 100) + '...' : 'No synopsis available.'}</p>
-                </div>
+					</div>
             `).join('');
 
             bestsellersSection.innerHTML += animeList;
